@@ -1,7 +1,6 @@
 class GoalsController < ApplicationController
-  # before_action :authenticate_user!, except: [:show]
-  before_action :set_goal, only: [:show]
-
+  before_action :authenticate_user!, except: [:index]
+  before_action :set_goal, only: [:show, :edit, :update]
 
   # GET /goals
   # GET /goals.json
@@ -12,6 +11,7 @@ class GoalsController < ApplicationController
   # GET /goals/1
   # GET /goals/1.json
   def show
+    @goals = Goal.new
   end
 
   # GET /goals/new
@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(goal_params)
+    @goal = current_user.goals.build(goal_params)
 
     respond_to do |format|
       if @goal.save
@@ -71,6 +71,7 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:user_id, :title, :opt_assessment, :opt_appraisal, :nom_rating, :exp_duration, :pos_deviation)
+      params.require(:goal).permit(:user_id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation)
     end
+
 end

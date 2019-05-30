@@ -1,0 +1,32 @@
+ru:
+  # Перевод моделей
+  activerecord:
+    # Перевод названия моделей
+    models:
+      user: 'Пользователь'
+      goal: 'Задача'
+
+    # Перевод названий аттрибутов моделей
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Имя'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+      goal:
+        title: 'Название'
+        opt_assessment: 'Оптимистическая оценка'
+        nom_rating: 'Номинальная оценка'
+        pes_assessment: 'Пессимистическая оценка'
+        exp_duration: 'Ожидаемая продолжительность'
+        pos_deviation: 'Возможное отклонение'
+  views:
+    goal:
+      new_goal: 'Новая цель'
+      goals: 'Цели'
+      title: 'Название'
+      opt_assessment: 'Оптимистическая оценка'
+      nom_rating: 'Номинальная оценка'
+      pes_assessment: 'Пессимистическая оценка'
+      exp_duration: 'Ожидаемая продолжительность'
+      pos_deviation: 'Возможное отклонение'

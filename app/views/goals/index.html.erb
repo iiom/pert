@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Goals</h1>
+<h1><%= t('views.goal.goals') %></h1>
 
-<table>
+<table style="text-align: center">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Opt assessment</th>
-      <th>Opt appraisal</th>
-      <th>Nom rating</th>
-      <th>Exp duration</th>
-      <th>Pos deviation</th>
+<!--      <th>User</th>-->
+      <th><%= t('views.goal.title') %></th>
+      <th><%= t('views.goal.opt_assessment') %></th>
+      <th><%= t('views.goal.nom_rating') %></th>
+      <th><%= t('views.goal.pes_assessment') %></th>
+      <th><%= t('views.goal.exp_duration') %></th>
+      <th><%= t('views.goal.pos_deviation') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +19,11 @@
   <tbody>
     <% @goals.each do |goal| %>
       <tr>
-        <td><%= goal.user %></td>
+<!--        <td><%#= goal.user %></td>-->
         <td><%= goal.title %></td>
         <td><%= goal.opt_assessment %></td>
-        <td><%= goal.opt_appraisal %></td>
         <td><%= goal.nom_rating %></td>
+        <td><%= goal.pes_assessment %></td>
         <td><%= goal.exp_duration %></td>
         <td><%= goal.pos_deviation %></td>
         <td><%= link_to 'Show', goal %></td>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Goal', new_goal_path %>
+<%= link_to t('views.goal.new_goal'), new_goal_path %>
