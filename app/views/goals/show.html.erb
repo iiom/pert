@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @goal.user %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @goal.title %>
+</p>
+
+<p>
+  <strong>Opt assessment:</strong>
+  <%= @goal.opt_assessment %>
+</p>
+
+<p>
+  <strong>Opt appraisal:</strong>
+  <%= @goal.opt_appraisal %>
+</p>
+
+<p>
+  <strong>Nom rating:</strong>
+  <%= @goal.nom_rating %>
+</p>
+
+<p>
+  <strong>Exp duration:</strong>
+  <%= @goal.exp_duration %>
+</p>
+
+<p>
+  <strong>Pos deviation:</strong>
+  <%= @goal.pos_deviation %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>
