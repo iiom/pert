@@ -20,6 +20,7 @@ ru:
         pes_assessment: 'Пессимистическая оценка'
         exp_duration: 'Ожидаемая продолжительность'
         pos_deviation: 'Возможное отклонение'
+
   views:
     goal:
       new_goal: 'Новая цель'
@@ -30,3 +31,6 @@ ru:
       pes_assessment: 'Пессимистическая оценка'
       exp_duration: 'Ожидаемая продолжительность'
       pos_deviation: 'Возможное отклонение'
+
+  app:
+    to_the_start: 'В начало'

@@ -2,10 +2,9 @@
 
 <h1><%= t('views.goal.goals') %></h1>
 
-<table style="text-align: center">
-  <thead>
+  <table style="text-align: center">
+    <thead>
     <tr>
-<!--      <th>User</th>-->
       <th><%= t('views.goal.title') %></th>
       <th><%= t('views.goal.opt_assessment') %></th>
       <th><%= t('views.goal.nom_rating') %></th>
@@ -14,12 +13,11 @@
       <th><%= t('views.goal.pos_deviation') %></th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @goals.each do |goal| %>
       <tr>
-<!--        <td><%#= goal.user %></td>-->
         <td><%= goal.title %></td>
         <td><%= goal.opt_assessment %></td>
         <td><%= goal.nom_rating %></td>
@@ -28,12 +26,12 @@
         <td><%= goal.pos_deviation %></td>
         <td><%= link_to 'Show', goal %></td>
         <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', goal, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to t('views.goal.new_goal'), new_goal_path %>
+  <%= link_to t('views.goal.new_goal'), new_goal_path %>

@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_goal, only: [:show, :edit, :update]
+  before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
@@ -31,10 +31,10 @@ class GoalsController < ApplicationController
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
-        format.json { render :show, status: :created, location: @goal }
+        # format.json { render :show, status: :created, location: @goal }
       else
         format.html { render :new }
-        format.json { render json: @goal.errors, status: :unprocessable_entity }
+        # format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,7 +58,7 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     respond_to do |format|
-      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
+      format.html { redirect_to goals_path, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
