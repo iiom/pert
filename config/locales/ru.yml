@@ -20,6 +20,7 @@ ru:
         pes_assessment: 'Пессимистическая оценка'
         exp_duration: 'Ожидаемая продолжительность'
         pos_deviation: 'Возможное отклонение'
+        act_duration: 'Фактическая продолжительность'
 
   views:
     goal:
@@ -31,6 +32,7 @@ ru:
       pes_assessment: 'Пессимистическая оценка'
       exp_duration: 'Ожидаемая продолжительность'
       pos_deviation: 'Возможное отклонение'
+      act_duration: 'Фактическая продолжительность'
 
   app:
     to_the_start: 'В начало'

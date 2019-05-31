@@ -5,7 +5,7 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+    @goals = Goal.where(deleted: false)
   end
 
   # GET /goals/1
@@ -56,7 +56,7 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
-    @goal.destroy
+    @goal.update(deleted: true)
     respond_to do |format|
       format.html { redirect_to goals_path, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }

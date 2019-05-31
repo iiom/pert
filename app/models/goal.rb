@@ -1,7 +1,7 @@
 class Goal < ApplicationRecord
   belongs_to :user
 
-  validates :title, presence: true, length: {maximum: 10, message: 'не больше 10 символов'}
+  validates :title, presence: true, length: {maximum: 15, message: 'не больше 15 символов'}
 
   #float не робит или devise валидирует на integer only хоть и стоит формат float
   validates :opt_assessment, :nom_rating, :pes_assessment,
