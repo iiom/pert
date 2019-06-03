@@ -8,6 +8,7 @@ class Goal < ApplicationRecord
             numericality: { only_float: true, :greater_than_or_equal_to => 0 }
 
   before_save :account
+  # after_destroy :set_act_duration
 
   #расчёт ожидаемой продолжительности и возможного отклонения
   def account
@@ -16,4 +17,8 @@ class Goal < ApplicationRecord
     self.exp_duration = exp_duration.round(3)
     self.pos_deviation = pos_deviation.round(3)
   end
+
+  # def set_act_duration
+  #   self.act_duration.update(act_duration: params[:act_duration])
+  # end
 end

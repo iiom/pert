@@ -4,17 +4,17 @@
       <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
 
       <ul>
-      <% goal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% goal.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-<!--  <div class="field">-->
-    <%#= form.label :user_id %>
-    <%#= form.text_field :user_id %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :user_id %>
+  <%#= form.text_field :user_id %>
+  <!--  </div>-->
 
   <div class="field">
     <%= form.label :title %>
@@ -36,15 +36,15 @@
     <%= form.number_field :nom_rating %>
   </div>
 
-<!--  <div class="field">-->
-    <%#= form.label :exp_duration %>
-    <%#= form.number_field :exp_duration %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :exp_duration %>
+  <%#= form.number_field :exp_duration %>
+  <!--  </div>-->
 
-<!--  <div class="field">-->
-    <%#= form.label :pos_deviation %>
-    <%#= form.number_field :pos_deviation %>
-<!--  </div>-->
+  <!--  <div class="field">-->
+  <%#= form.label :pos_deviation %>
+  <%#= form.number_field :pos_deviation %>
+  <!--  </div>-->
 
   <div class="actions">
     <%= form.submit %>
