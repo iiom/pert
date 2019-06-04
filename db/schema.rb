@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_160058) do
+ActiveRecord::Schema.define(version: 2019_06_03_183346) do
+
+  create_table "archives", force: :cascade do |t|
+    t.float "fact_days"
+    t.integer "goal_id"
+    t.boolean "archived"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_archives_on_goal_id"
+  end
 
   create_table "goals", force: :cascade do |t|
     t.integer "user_id"
