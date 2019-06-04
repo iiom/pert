@@ -1,39 +1,39 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t('activerecord.models.user') %>:</strong>
   <%= @goal.user.email %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('views.goal.title') %>:</strong>
   <%= @goal.title %>
 </p>
 
 <p>
-  <strong>Opt assessment:</strong>
+  <strong><%= t('views.goal.opt_assessment') %>:</strong>
   <%= @goal.opt_assessment %>
 </p>
 
 <p>
-  <strong>Opt appraisal:</strong>
+  <strong><%= t('views.goal.nom_rating') %>:</strong>
   <%= @goal.pes_assessment %>
 </p>
 
 <p>
-  <strong>Nom rating:</strong>
+  <strong><%= t('views.goal.pes_assessment') %>:</strong>
   <%= @goal.nom_rating %>
 </p>
 
 <p>
-  <strong>Exp duration:</strong>
+  <strong><%= t('views.goal.exp_duration') %>:</strong>
   <%= @goal.exp_duration %>
 </p>
 
 <p>
-  <strong>Pos deviation:</strong>
+  <strong><%= t('views.goal.pos_deviation') %>:</strong>
   <%= @goal.pos_deviation %>
 </p>
 
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
+<%= link_to t('views.goal.edit'), edit_goal_path(@goal) %> |
+<%= link_to t('views.goal.back'), goals_path %>

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if @goals.empty? %>
-  <p> У вас нет ни одной цели </p>
+  <p> <%= t('views.goal.no_goal') %> </p>
 <% else %>
   <h1><%= t('views.goal.goals') %></h1>
   <table style="text-align: center">

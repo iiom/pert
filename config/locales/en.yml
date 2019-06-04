@@ -36,8 +36,19 @@ en:
     goal:
       new_goal: 'New Goal'
       goals: 'Goals'
+      title: 'Title'
+      editing_goal: 'Editing Goal'
+      no_goal: 'You havet goals'
+      arch_goal: 'Archive Goal'
+      opt_assessment: 'Optimistic assessment'
+      nom_rating: 'Nominate Rating'
+      pes_assessment: 'Pessimistic assessment'
+      exp_duration: 'Expiration duration'
+      pos_deviation: 'Possible deviation'
+      act_duration: 'Actual duration'
       show: 'Show'
       edit: 'Edit'
+      back: 'Back'
       archive: 'Archive'
 
   app:
