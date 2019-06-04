@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
 
   # GET /goals
   def index
-    @goals = Goal.where(deleted: false)
+    @goals = Goal.where(deleted: false, user_id: current_user)
   end
 
   # GET /goals/1
