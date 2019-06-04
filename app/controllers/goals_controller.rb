@@ -1,18 +1,14 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :set_goal, only: [:show, :edit, :update, :destroy, :set_duration]
-  # before_action :goal_params1, only: [:set_duration]
 
   # GET /goals
-  # GET /goals.json
   def index
     @goals = Goal.where(deleted: false)
   end
 
   # GET /goals/1
-  # GET /goals/1.json
   def show
-    # @goals = Goal.new
   end
 
   # GET /goals/new
@@ -25,64 +21,47 @@ class GoalsController < ApplicationController
   end
 
   # POST /goals
-  # POST /goals.json
   def create
     @goal = current_user.goals.build(goal_params)
 
     respond_to do |format|
       if @goal.save
         format.html {redirect_to @goal, notice: 'Goal was successfully created.'}
-        # format.json { render :show, status: :created, location: @goal }
       else
         format.html {render :new}
-        # format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /goals/1
-  # PATCH/PUT /goals/1.json
   def update
     respond_to do |format|
       if @goal.update(goal_params)
         format.html {redirect_to @goal, notice: 'Goal was successfully updated.'}
-        # format.json { render :show, status: :ok, location: @goal }
       else
         format.html {render :edit}
-        # format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def set_duration
-    # render "set_duration"
-    # @goal.act_duration = goal_params1[:act_duration]
-    # @goal.save
-    # if goal_params1.empty?
-    #   render :set_duration
-    # else
+    if goal_params1.empty?
+      render :set_duration
+    else
 
       respond_to do |format|
         if @goal.update(goal_params1)
+          @goal.update(deleted: true)
           format.html {redirect_to goals_path, notice: 'act_duration was successfully updated.'}
         else
           format.html {render :set_duration}
         end
       end
-    # end
+    end
   end
 
   # DELETE /goals/1
-  # DELETE /goals/1.json
   def destroy
-    # @goal.update(deleted: true)
-
-    # render "goals/act_duration_form"
-
-    # respond_to do |format|
-    #   format.html { redirect_to set_duration, notice: 'Goal was successfully destroyed.' }
-    #   # format.json { head :no_content }
-    # end
   end
 
   private
@@ -94,13 +73,11 @@ class GoalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def goal_params
-    # params.fetch(:goal, {}).permit(:user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation, :act_duration)
     params.require(:goal).permit(:user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation)
   end
 
   def goal_params1
-    # params.fetch(:goal, {}).permit(:act_duration)
-    params.permit(:act_duration)
+    params.fetch(:goal, {}).permit(:act_duration)
   end
 
 end

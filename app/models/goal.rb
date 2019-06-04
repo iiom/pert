@@ -4,8 +4,10 @@ class Goal < ApplicationRecord
   validates :title, presence: true, length: {maximum: 15, message: 'не больше 15 символов'}
 
   #float не робит или devise валидирует на integer only хоть и стоит формат float
-  validates :opt_assessment, :nom_rating, :pes_assessment, :act_duration,
+  validates :opt_assessment, :nom_rating, :pes_assessment,
             numericality: { only_float: true, :greater_than_or_equal_to => 0 }
+
+  validates :act_duration, numericality: { only_float: true, :greater_than_or_equal_to => 0 }, if: :act_duration
 
   before_save :account
   # after_destroy :set_act_duration

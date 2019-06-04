@@ -14,13 +14,11 @@
 <% if user_signed_in? %>
   <li><%= link_to t('app.to_the_start'), goals_path %></li>
   <li><%= link_to 'Профиль', edit_user_registration_path %></li>
-  <li><%= link_to 'Выйти', destroy_user_session_path,
-                  method: :delete %></li>
+  <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
 <% else %>
   <li><%= link_to t('app.to_the_start'), root_path %></li>
   <li><%= link_to 'Войти', new_user_session_path %></li>
-  <li><%= link_to 'Зарегистрироваться',
-                  new_user_registration_path %></li>
+  <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
 <% end %>
 <%= yield %>
 </body>
