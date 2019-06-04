@@ -36,6 +36,9 @@ en:
     goal:
       new_goal: 'New Goal'
       goals: 'Goals'
+      show: 'Show'
+      edit: 'Edit'
+      archive: 'Archive'
 
   app:
       to_the_start: 'To the Start'

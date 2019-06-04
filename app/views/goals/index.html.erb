@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
 <% if @goals.empty? %>
   <p> У вас нет ни одной цели </p>
 <% else %>
@@ -27,9 +26,9 @@
         <td><%= goal.pes_assessment %></td>
         <td><%= goal.exp_duration %></td>
         <td><%= goal.pos_deviation %></td>
-        <td><%= link_to 'Show', goal %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Archive', set_duration_goal_path(goal) %></td>
+        <td><%= link_to t('views.goal.show'), goal %></td>
+        <td><%= link_to t('views.goal.edit'), edit_goal_path(goal) %></td>
+        <td><%= link_to t('views.goal.archive'), set_duration_goal_path(goal) %></td>
       </tr>
     <% end %>
     </tbody>
