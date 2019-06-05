@@ -45,9 +45,10 @@ class GoalsController < ApplicationController
   end
 
   def set_duration
-    if goal_params1.empty?
-      render :set_duration
-    else
+    # render set
+    # if goal_params1.nil?
+    #   render :set_duration
+    # end
 
       respond_to do |format|
         if @goal.update(goal_params1)
@@ -57,7 +58,7 @@ class GoalsController < ApplicationController
           format.html {render :set_duration}
         end
       end
-    end
+    # end
   end
 
   # DELETE /goals/1
@@ -77,7 +78,8 @@ class GoalsController < ApplicationController
   end
 
   def goal_params1
-    params.fetch(:goal, {}).permit(:act_duration)
+    # params.fetch(:goal, {}).permit(:act_duration)
+    params.permit(act_duration: {})
   end
 
 end

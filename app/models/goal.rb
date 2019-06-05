@@ -7,10 +7,9 @@ class Goal < ApplicationRecord
   validates :opt_assessment, :nom_rating, :pes_assessment,
             numericality: { only_float: true, :greater_than_or_equal_to => 0 }
 
-  validates :act_duration, numericality: { only_float: true, :greater_than_or_equal_to => 0 }, if: :act_duration
+  validates :act_duration, presence: true, numericality: { only_float: true, :greater_than_or_equal_to => 0 }
 
   before_save :account
-  # after_destroy :set_act_duration
 
   #расчёт ожидаемой продолжительности и возможного отклонения
   def account
@@ -20,7 +19,7 @@ class Goal < ApplicationRecord
     self.pos_deviation = pos_deviation.round(3)
   end
 
-  # def set_act_duration
-  #   self.act_duration.update(act_duration: params[:act_duration])
+  # def sd
+  #   self.act_duration.try_update
   # end
 end
