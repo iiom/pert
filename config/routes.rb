@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :goals do
     member do
-      get :set_duration
+      get :archiv
       patch :set_duration
-      post :set_duration
+      # post :set_duration
     end
   end
   # get "set_duration/with_goals/:id", to: "goals#set_duration", as: 'set_duration'

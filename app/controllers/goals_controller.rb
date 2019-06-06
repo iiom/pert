@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_goal, only: [:show, :edit, :update, :destroy, :set_duration]
+  before_action :set_goal, only: [:show, :edit, :update, :set_duration, :archiv]
 
   # GET /goals
   def index
@@ -18,6 +18,9 @@ class GoalsController < ApplicationController
 
   # GET /goals/1/edit
   def edit
+  end
+
+  def archiv
   end
 
   # POST /goals
@@ -45,19 +48,14 @@ class GoalsController < ApplicationController
   end
 
   def set_duration
-    # render set
-    # if goal_params1.nil?
-    #   render :set_duration
-    # end
-
-      respond_to do |format|
-        if @goal.update(goal_params1)
-          @goal.update(deleted: true)
-          format.html {redirect_to goals_path, notice: 'act_duration was successfully updated.'}
-        else
-          format.html {render :set_duration}
-        end
+    respond_to do |format|
+      if @goal.update(goal_params)
+        @goal.update(deleted: true)
+        format.html {redirect_to goals_path, notice: 'act_duration was successfully updated.'}
+      else
+        format.html {redirect_to archiv_goal_path(@goal)}
       end
+    end
     # end
   end
 
@@ -74,12 +72,12 @@ class GoalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def goal_params
-    params.require(:goal).permit(:user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation)
+    params.require(:goal).permit(:act_duration, :user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation)
   end
 
   def goal_params1
     # params.fetch(:goal, {}).permit(:act_duration)
-    params.permit(act_duration: {})
+    # params.require(:goal).permit(:act_duration)
   end
 
 end

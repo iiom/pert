@@ -7,7 +7,8 @@ class Goal < ApplicationRecord
   validates :opt_assessment, :nom_rating, :pes_assessment,
             numericality: { only_float: true, :greater_than_or_equal_to => 0 }
 
-  validates :act_duration, presence: true, numericality: { only_float: true, :greater_than_or_equal_to => 0 }
+  validates :act_duration, presence: true, numericality: { only_float: true, :greater_than_or_equal_to => 0 },
+            if: :act_duration
 
   before_save :account
 
