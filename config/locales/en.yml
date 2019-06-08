@@ -50,6 +50,9 @@ en:
       edit: 'Edit'
       back: 'Back'
       archive: 'Archive'
+      save: 'Save'
 
   app:
-      to_the_start: 'To the Start'
+    to_the_start: 'To the Start'
+    sign_up: 'Sign up'
+    log_in: 'Log in'
