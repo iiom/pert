@@ -49,7 +49,7 @@ class GoalsController < ApplicationController
 
   def archived
     respond_to do |format|
-      if @goal.update(goal_params) && @goal.valid?(:check_before)
+      if @goal.update(goal_act_params) && @goal.valid?(:check_before)
         @goal.update(deleted: true)
         format.html {redirect_to goals_path, notice: 'act_duration was successfully......'}
       else
@@ -67,6 +67,10 @@ class GoalsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def goal_params
-    params.require(:goal).permit(:act_duration, :user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation, :act_duration)
+    params.require(:goal).permit(:act_duration, :user_id, :id, :title, :opt_assessment, :pes_assessment, :nom_rating, :exp_duration, :pos_deviation)
+  end
+
+  def goal_act_params
+    params.require(:goal).permit(:act_duration)
   end
 end
