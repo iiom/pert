@@ -1,27 +1,30 @@
 <%#= form_with(model: @goal, local: true, url: archived_goal_path) do |form| %>
-  <%# if @goal.errors.any? %>
+<%# if @goal.errors.any? %>
 <!--    <div id="error_explanation">-->
 <!--      <h2><%#= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>-->
 
 <!--      <ul>-->
-        <%# @goal.errors.full_messages.each do |message| %>
+<%# @goal.errors.full_messages.each do |message| %>
 <!--          <li><%#= message %></li>-->
-        <%# end %>
+<%# end %>
 <!--      </ul>-->
 <!--    </div>-->
-  <%# end %>
+<%# end %>
 
 <!--  <div class="field">-->
-    <%#= form.label :act_duration %>
-    <%#= form.number_field :act_duration %>
+<%#= form.label :act_duration %>
+<%#= form.number_field :act_duration %>
 <!--  </div>-->
 
 <!--  <div class="actions">-->
-    <%#= form.submit %>
+<%#= form.submit %>
 <!--  </div>-->
-
-  <%= simple_form_for @goal, local: true, url: archived_goal_path do |f| %>
-    <%= f.input :act_duration %>
-    <%= f.button :submit, 'В архив', class: 'btn btn-primary' %>
-  <% end %>
+<div class="row">
+  <div class="col-md-6">
+    <%= simple_form_for @goal, local: true, url: archived_goal_path do |f| %>
+      <%= f.input :act_duration %>
+      <%= f.button :submit, 'В архив', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
 <%# end %>
