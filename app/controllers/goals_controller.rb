@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_goal, only: [:show, :edit, :update, :pre_archived, :archived]
+  before_action :set_goal, only: [:show, :edit, :update, :ar]
 
   # GET /goals
   def index
@@ -33,27 +33,25 @@ class GoalsController < ApplicationController
     end
   end
 
+  def ar
+  end
+
   # PATCH/PUT /goals/1
   def update
     respond_to do |format|
-      if @goal.update(goal_params)
-        format.html {redirect_to @goal, notice: 'Goal was successfully updated.'}
+      if goal_act_params[:act_duration].present?
+        if @goal.update(goal_act_params) && @goal.valid?(:check_before)
+           @goal.update(deleted: true)
+          format.html {redirect_to root_path, notice: 'ARCHIVED..........'}
+        else
+          format.html {render :ar}
+        end
       else
-        format.html {render :edit}
-      end
-    end
-  end
-
-  def pre_archived
-  end
-
-  def archived
-    respond_to do |format|
-      if @goal.update(goal_act_params) && @goal.valid?(:check_before)
-        @goal.update(deleted: true)
-        format.html {redirect_to goals_path, notice: 'act_duration was successfully......'}
-      else
-        format.html {render :pre_archived}
+        if @goal.update(goal_params)
+          format.html {redirect_to @goal, notice: 'Goal was successfully updated.'}
+        else
+          format.html {render :edit}
+        end
       end
     end
   end

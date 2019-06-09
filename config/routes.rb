@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   resources :goals do
     member do
-      get :pre_archived
-      patch :archived
-      put :archived
+      get :ar
+      # get :pre_archived
+      # patch :archived
+      # put :archived
     end
   end
 
