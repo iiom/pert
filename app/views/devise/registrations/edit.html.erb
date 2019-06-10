@@ -31,6 +31,6 @@
 <% end %>
 <br>
 <p><%= t('devise.del_acc') %>?</p>
-<%= link_to t('devise.del'), registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete %>
+<%= link_to t('devise.del'), registration_path(resource_name), data: {confirm: t('devise.registrations.destr_alarm')}, method: :delete %>
 <br>
 <%= link_to t('views.goal.back'), :back %>
