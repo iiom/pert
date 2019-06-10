@@ -39,7 +39,7 @@ class GoalsController < ApplicationController
   # PATCH/PUT /goals/1
   def update
     respond_to do |format|
-      if goal_act_params[:act_duration].present?
+      if goal_params[:title].nil?
         if @goal.update(goal_act_params) && @goal.valid?(:check_before)
            @goal.update(deleted: true)
           format.html {redirect_to root_path, notice: 'ARCHIVED..........'}
