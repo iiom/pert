@@ -32,7 +32,7 @@ gem 'jquery-rails'
 
 * Deployment instructions
 
-#######create gemset
+create gemset(optional)
 
 ```
 gem install bundler
