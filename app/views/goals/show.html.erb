@@ -35,5 +35,10 @@
   <%= @goal.pos_deviation %>
 </p>
 
+<p>
+  <strong><%=  %></strong>
+  <%= @goal.description %>
+</p>
+
 <%= link_to t('views.goal.edit'), edit_goal_path(@goal) %> |
 <%= link_to t('views.goal.back'), goals_path %>

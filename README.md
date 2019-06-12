@@ -1,24 +1,42 @@
-# README
+# PERT (Program Evaluation and Review Technique) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Взято из книги - Идеальный программист. Как стать профессионалом разработки ПО
 
-Things you may want to cover:
+Программа для оценки времени, необходимого для написания кода, по 3-м временным оценкам:
+- О: оптимистическая оценка (адача может быть выполнена за это время только в том случае, если все без исключения пройдет гладко)
+- N: номинальная оценка (наиболее вероятная)
+- P: пессимистическая оценка (Эта оценка также должна быть крайне предельно пессимистической. В ней следует учесть все возможные неприятности, кроме ураганов, ядерной войны, блуждающих «черных дыр» и других катастроф)
 
-* Ruby version
+По этим трем оценкам вероятностное распределение описывается следующей формулой:
 
-* System dependencies
+ожидаемая продолжительность задачи = (O + 4N + P)/6
 
-* Configuration
+Кроме того необходимо расчитать среднеквадратическое отклонение распределения времени выполнения задачи. Фактически это мера неопределенности задачи: если это число велико, то и неопределенность тоже велика. Формула:
 
-* Database creation
+среднеквадратическое отклонение = (P - O)/6
 
-* Database initialization
 
-* How to run the test suite
+* Ruby version `2.6.2`
 
-* Services (job queues, cache servers, search engines, etc.)
+* RoR version `5.2.3`
+
+* System dependencies:
+ ```
+gem 'devise'
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 5.1'
+gem 'simple_form'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+ ```
 
 * Deployment instructions
 
-* ...
+#######create gemset
+
+```
+gem install bundler
+bundle install --without production
+bundle exec rake db:migrate
+```
+

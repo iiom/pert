@@ -1,10 +1,7 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<% if @goals.empty? %>
-  <p> <%= t('views.goal.no_goal') %> </p>
-<% else %>
-  <h1><%= t('views.goal.goals') %></h1>
-  <table style="text-align: center">
+<% if user_signed_in? %>
+  <table class="table-sm table-hover">
     <thead>
     <tr>
       <th><%= t('views.goal.title') %></th>
@@ -13,10 +10,8 @@
       <th><%= t('views.goal.pes_assessment') %></th>
       <th><%= t('views.goal.exp_duration') %></th>
       <th><%= t('views.goal.pos_deviation') %></th>
-      <th colspan="3"></th>
     </tr>
     </thead>
-
     <tbody>
     <% @goals.each do |goal| %>
       <tr>
@@ -26,15 +21,14 @@
         <td><%= goal.pes_assessment %></td>
         <td><%= goal.exp_duration %></td>
         <td><%= goal.pos_deviation %></td>
-<!--        <td><%#= link_to t('views.goal.show'), goal %></td>-->
         <td><%= link_to fa_icon('edit'), edit_goal_path(goal), title: t('views.goal.edit') %></td>
-        <td><%= link_to fa_icon('archive'), pre_archived_goal_path(goal),  title: t('views.goal.archive')  %></td>
+        <td><%= link_to fa_icon('archive'), pre_archived_goal_path(goal), title: t('views.goal.archive') %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+<% else %>
+  <p> <%= t('views.goal.no_goal') %> </p>
 <% end %>
-
-<br>
 
 <%= link_to t('views.goal.new_goal'), new_goal_path, class: 'btn btn-light' %>
